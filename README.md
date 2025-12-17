@@ -1,6 +1,6 @@
 # Grimoire
 
-Claude Code skills for full-stack and blockchain development.
+<img width="821" height="354" alt="image" src="https://github.com/user-attachments/assets/aa08726e-c2e9-45fc-8afc-074de4deffd5" />
 
 ## What's Included
 
