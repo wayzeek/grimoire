@@ -220,5 +220,4 @@ function testFuzz_transfer(address to, uint256 amount) public {
 
 ## References
 - [SWC Registry](https://swcregistry.io/)
-- [Consensys Smart Contract Best Practices](https://consensys.github.io/smart-contract-best-practices/)
-- [OpenZeppelin Security](https://docs.openzeppelin.com/contracts/security)
+- [ConsenSys Diligence Smart Contract Best Practices](https://consensysdiligence.github.io/smart-contract-best-practices/)

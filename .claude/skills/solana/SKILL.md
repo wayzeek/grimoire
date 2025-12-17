@@ -22,8 +22,8 @@ You are assisting a senior blockchain developer with Solana program development 
 
 ## Required Tools
 - **Rust**: Install via `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
-- **Solana CLI**: `sh -c "$(curl -sSfL https://release.solana.com/stable/install)"`
-- **Anchor**: `cargo install --git https://github.com/coral-xyz/anchor avm --locked && avm install latest && avm use latest`
+- **Solana CLI**: `curl --proto '=https' --tlsv1.2 -sSfL https://solana-install.solana.workers.dev | bash`
+- **Anchor**: `cargo install --git https://github.com/solana-foundation/anchor avm --locked && avm install latest && avm use latest`
 - **Node.js/Yarn**: For testing framework
 
 ## Routing Logic

@@ -155,8 +155,8 @@ contract Vault is ReentrancyGuard {
 
 ## References
 - [SWC-107: Reentrancy](https://swcregistry.io/docs/SWC-107)
-- [Consensys: Reentrancy](https://consensys.github.io/smart-contract-best-practices/attacks/reentrancy/)
-- [The DAO Hack](https://hackingdistributed.com/2016/06/18/analysis-of-the-dao-exploit/)
+- [ConsenSys Diligence: Reentrancy](https://consensysdiligence.github.io/smart-contract-best-practices/attacks/reentrancy/)
+- [The DAO Hack](https://www.gemini.com/cryptopedia/the-dao-hack-makerdao)
 
 ## Team Response
 [Client's acknowledgment and remediation plan]

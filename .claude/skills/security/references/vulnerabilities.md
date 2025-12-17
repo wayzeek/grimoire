@@ -17,5 +17,5 @@ See solidity skill's `context/security-patterns.md` for detailed patterns.
 
 ## Resources
 - SWC Registry: https://swcregistry.io/
-- Consensys Best Practices: https://consensys.github.io/smart-contract-best-practices/
+- ConsenSys Diligence Best Practices: https://consensysdiligence.github.io/smart-contract-best-practices/
 - Rekt News: https://rekt.news/

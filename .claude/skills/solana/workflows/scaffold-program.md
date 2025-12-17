@@ -2,7 +2,7 @@
 
 ```bash
 # Install Anchor
-cargo install --git https://github.com/coral-xyz/anchor avm --locked --force
+cargo install --git https://github.com/solana-foundation/anchor avm --locked --force
 avm install latest
 avm use latest
 
