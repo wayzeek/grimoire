@@ -1,6 +1,6 @@
 # Grimoire
 
-<img width="821" height="354" alt="image" src="https://github.com/user-attachments/assets/aa08726e-c2e9-45fc-8afc-074de4deffd5" />
+<img width="715" height="350" alt="image" src="https://github.com/user-attachments/assets/ce99a077-4b0f-4603-a193-408d84978096" />
 
 ## What's Included
 
