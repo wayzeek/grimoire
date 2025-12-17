@@ -1,20 +1,16 @@
 # Grimoire
 
-Claude Code skills and agents for blockchain development.
+Claude Code skills for full-stack and blockchain development.
 
 ## What's Included
 
 **Skills:**
-- Solidity - Smart contract development with Foundry/Forge
-- Solana - Solana program development using Anchor
-- Rust - General Rust development for CLI tools and services
-- Frontend - dApp development with React, Viem, Wagmi, RainbowKit
-- Backend - API development with Node.js/Bun and Django
-- Security - Security auditing and vulnerability detection
-
-**Agents:**
-- Auditor - Security auditor for comprehensive code analysis
-- Architect - System design and architectural planning
+- **Solidity** - Smart contract development with Foundry/Forge for EVM chains
+- **Solana** - Solana program development using Anchor framework
+- **Rust** - General Rust development for CLI tools, services, and system utilities
+- **Frontend** - Full-stack frontend development with React, TypeScript, Vite, and web3 integration
+- **Backend** - Full-stack backend development with Node.js/Bun and Django/Python
+- **Security** - Security auditing and vulnerability detection for smart contracts and applications
 
 ## Installation
 
@@ -29,9 +25,6 @@ Or install manually:
 ```bash
 # Copy all skills
 cp -r .claude/skills/* ~/.claude/skills/
-
-# Copy all agents
-cp -r .claude/agents/* ~/.claude/agents/
 ```
 
 ## Requirements
@@ -40,13 +33,24 @@ cp -r .claude/agents/* ~/.claude/agents/
 - Gum: `brew install gum`
 
 Optional tools for specific skills:
-- Foundry (Solidity)
-- Solana CLI + Anchor (Solana)
-- Bun/Node.js (Frontend/Backend)
+- **Solidity**: Foundry (Forge, Cast, Anvil)
+- **Solana**: Solana CLI + Anchor framework
+- **Rust**: Rust toolchain (rustup, cargo, rustfmt, clippy)
+- **Frontend**: Bun/Node.js, Vite, React, TypeScript
+- **Backend**: Bun/Node.js (Express/Fastify) or Python (Django/FastAPI)
 
 ## Usage
 
-Skills activate automatically based on file context. Agents can be invoked by mentioning them or specific tasks.
+Skills activate automatically based on file context and specific triggers mentioned in their descriptions.
+
+### Hybrid Development Approach
+
+The **Frontend** and **Backend** skills are designed for hybrid development:
+
+- **Frontend**: Supports both traditional web apps (React, TypeScript, Vite) and web3 dApps (Viem, Wagmi, RainbowKit)
+- **Backend**: Supports both traditional APIs (REST/GraphQL) and blockchain-specific services (indexers, event processors)
+
+This allows seamless development across web2 and web3 projects within the same codebase.
 
 ## License
 

@@ -1,7 +1,7 @@
 ---
 name: rust
 description: Expert general Rust development for CLI tools, backend services, and system utilities. Use when working with .rs files in non-blockchain Cargo projects, Rust optimization, idiomatic Rust patterns, or Rust toolchain. For Solana/Anchor, use the Solana skill instead.
-allowed-tools: []
+allowed-tools: [Read, Write, Edit, Glob, Grep, Bash]
 ---
 
 # General Rust Development

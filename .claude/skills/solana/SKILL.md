@@ -1,7 +1,7 @@
 ---
 name: solana
 description: Expert Solana program development using Anchor framework. Use when working with .rs files in Anchor projects, Solana programs, PDAs, account validation, or Solana deployment. Handles program scaffolding, testing, and deployment to Solana networks.
-allowed-tools: []
+allowed-tools: [Read, Write, Edit, Glob, Grep, Bash]
 ---
 
 # Solana & Anchor Development

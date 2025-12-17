@@ -21,14 +21,11 @@ fi
 # Paths
 GRIMOIRE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LOCAL_SKILLS_DIR="$GRIMOIRE_DIR/.claude/skills"
-LOCAL_AGENTS_DIR="$GRIMOIRE_DIR/.claude/agents"
 USER_CLAUDE_DIR="$HOME/.claude"
 USER_SKILLS_DIR="$USER_CLAUDE_DIR/skills"
-USER_AGENTS_DIR="$USER_CLAUDE_DIR/agents"
 
 # Create user directories if they don't exist
 mkdir -p "$USER_SKILLS_DIR"
-mkdir -p "$USER_AGENTS_DIR"
 
 # Parse YAML frontmatter to extract description
 parse_description() {
@@ -55,50 +52,32 @@ parse_description() {
     echo "$description"
 }
 
-# Check if skill/agent is installed
+# Check if skill is installed
 is_installed() {
-    local type="$1"
-    local name="$2"
-
-    if [ "$type" = "skill" ]; then
-        [ -d "$USER_SKILLS_DIR/$name" ]
-    else
-        [ -f "$USER_AGENTS_DIR/$name.md" ]
-    fi
+    local name="$1"
+    [ -d "$USER_SKILLS_DIR/$name" ]
 }
 
 # Check if installed version needs update
 needs_update() {
-    local type="$1"
-    local name="$2"
-
-    if [ "$type" = "skill" ]; then
-        local src="$LOCAL_SKILLS_DIR/$name"
-        local dst="$USER_SKILLS_DIR/$name"
-    else
-        local src="$LOCAL_AGENTS_DIR/$name.md"
-        local dst="$USER_AGENTS_DIR/$name.md"
-    fi
+    local name="$1"
+    local src="$LOCAL_SKILLS_DIR/$name"
+    local dst="$USER_SKILLS_DIR/$name"
 
     if [ ! -e "$dst" ]; then
         return 0
     fi
 
-    if [ "$type" = "skill" ]; then
-        ! diff -rq "$src" "$dst" > /dev/null 2>&1
-    else
-        ! diff -q "$src" "$dst" > /dev/null 2>&1
-    fi
+    ! diff -rq "$src" "$dst" > /dev/null 2>&1
 }
 
 # Get status label
 get_status() {
-    local type="$1"
-    local name="$2"
+    local name="$1"
 
-    if ! is_installed "$type" "$name"; then
+    if ! is_installed "$name"; then
         echo "not installed"
-    elif needs_update "$type" "$name"; then
+    elif needs_update "$name"; then
         echo "update available"
     else
         echo "installed"
@@ -115,15 +94,7 @@ install_skill() {
     gum style --foreground 212 "Installed: $skill_name"
 }
 
-# Install an agent
-install_agent() {
-    local agent_name="$1"
 
-    gum spin --spinner dot --title "Installing $agent_name..." -- \
-        cp "$LOCAL_AGENTS_DIR/$agent_name.md" "$USER_AGENTS_DIR/"
-
-    gum style --foreground 212 "Installed: $agent_name"
-}
 
 # Show header
 show_header() {
@@ -158,10 +129,10 @@ show_header() {
         --padding "2 4" \
 "$(gum style --bold --foreground 212 'GRIMOIRE')
 
-$(gum style --faint 'Claude Code Skills & Agents')
+$(gum style --faint 'Claude Code Skills')
 
-$(gum style --faint 'Blockchain development expertise')
-$(gum style --faint 'for Solidity, Solana, and dApps')")
+$(gum style --faint 'Full-stack & blockchain development')
+$(gum style --faint 'for Solidity, Solana, and modern web apps')")
 
     # Join horizontally
     gum join --horizontal "$book_box" "$title_section"
@@ -183,7 +154,7 @@ browse_skills() {
         for skill_dir in "$LOCAL_SKILLS_DIR"/*; do
             if [ -d "$skill_dir" ]; then
                 local name=$(basename "$skill_dir")
-                local status=$(get_status "skill" "$name")
+                local status=$(get_status "$name")
                 choices+=("$name [$status]")
             fi
         done
@@ -207,9 +178,28 @@ browse_skills() {
 
         local exit_code=$?
 
-        # Check exit code (ESC pressed) or empty selection - go back
+        # Check exit code (ESC pressed) or empty selection - exit program
         if [ $exit_code -ne 0 ] || [ -z "$selection" ]; then
-            return
+            clear
+            echo ""
+
+            # Farewell messages array
+            local farewells=(
+                "May your spells compile without error"
+                "The grimoire closes... until next time"
+                "Your magic awaits in ~/.claude"
+                "Happy coding, wizard!"
+                "The arcane knowledge has been transferred"
+                "May your deployments be ever successful"
+                "Closing the book of blockchain wisdom"
+                "Your skills are ready. Go forth and build!"
+            )
+
+            # Pick a random farewell
+            local random_index=$((RANDOM % ${#farewells[@]}))
+            gum style --foreground 212 "${farewells[$random_index]}"
+            echo ""
+            exit 0
         fi
 
         # Handle "Install All Skills"
@@ -237,7 +227,7 @@ browse_skills() {
 
         local file="$LOCAL_SKILLS_DIR/$skill_name/SKILL.md"
         local description=$(parse_description "$file")
-        local status=$(get_status "skill" "$skill_name")
+        local status=$(get_status "$skill_name")
 
         gum style --italic "$description"
         echo ""
@@ -275,164 +265,16 @@ browse_skills() {
     done
 }
 
-# Browse and install agents
-browse_agents() {
-    while true; do
-        show_header
 
-        gum style --bold --foreground 212 "Agents"
-        echo ""
 
-        # Build choices array
-        local choices=()
-
-        for agent_file in "$LOCAL_AGENTS_DIR"/*.md; do
-            if [ -f "$agent_file" ]; then
-                local name=$(basename "$agent_file" .md)
-                local status=$(get_status "agent" "$name")
-                choices+=("$name [$status]")
-            fi
-        done
-
-        # Add "Install All" at the beginning
-        if [ ${#choices[@]} -gt 0 ]; then
-            choices=("Install All Agents" "${choices[@]}")
-        fi
-
-        if [ ${#choices[@]} -eq 1 ]; then
-            gum style --foreground 196 "No agents found"
-            sleep 2
-            return
-        fi
-
-        # Let user select
-        local selection=$(gum choose \
-            --header "↑/↓: Navigate • Enter: Select • ESC: Back" \
-            --height 15 \
-            "${choices[@]}")
-
-        local exit_code=$?
-
-        # Check exit code (ESC pressed) or empty selection - go back
-        if [ $exit_code -ne 0 ] || [ -z "$selection" ]; then
-            return
-        fi
-
-        # Handle "Install All Agents"
-        if [[ "$selection" == "Install All Agents"* ]]; then
-            gum confirm "Install all agents?" && {
-                for agent_file in "$LOCAL_AGENTS_DIR"/*.md; do
-                    if [ -f "$agent_file" ]; then
-                        local name=$(basename "$agent_file" .md)
-                        install_agent "$name"
-                    fi
-                done
-                gum style --foreground 212 "All agents installed"
-                sleep 1
-            }
-            continue
-        fi
-
-        # Extract agent name from selection
-        local agent_name=$(echo "$selection" | sed 's/ \[.*\]//')
-
-        # Show details
-        show_header
-        gum style --bold --foreground 212 "Agent: $agent_name"
-        echo ""
-
-        local file="$LOCAL_AGENTS_DIR/$agent_name.md"
-        local description=$(parse_description "$file")
-        local status=$(get_status "agent" "$agent_name")
-
-        gum style --italic "$description"
-        echo ""
-        gum style "Status: $status"
-        echo ""
-
-        # Confirm installation
-        if [ "$status" = "installed" ]; then
-            local choice=$(gum choose \
-                --header "What would you like to do?" \
-                "Update" \
-                "Delete" \
-                "Cancel")
-
-            case "$choice" in
-                "Update")
-                    install_agent "$agent_name"
-                    sleep 1
-                    ;;
-                "Delete")
-                    rm -f "$USER_AGENTS_DIR/$agent_name.md"
-                    gum style --foreground 212 "Deleted: $agent_name"
-                    sleep 1
-                    ;;
-            esac
-        else
-            local action="Install"
-            [ "$status" = "update available" ] && action="Update"
-
-            gum confirm "$action $agent_name?" && {
-                install_agent "$agent_name"
-                sleep 1
-            }
-        fi
-    done
-}
-
-# Main menu
+# Main menu - directly browse skills
 main_menu() {
-    while true; do
-        show_header
-
-        local choice=$(gum choose \
-            --header "↑/↓: Navigate • Enter: Select • ESC: Exit" \
-            --no-show-help \
-            "Explore Skills" \
-            "Explore Agents" \
-            "Exit")
-
-        local exit_code=$?
-
-        # Check exit code (ESC pressed) or empty choice - exit program
-        if [ $exit_code -ne 0 ] || [ -z "$choice" ] || [ "$choice" = "Exit" ]; then
-            clear
-            echo ""
-
-            # Farewell messages array
-            local farewells=(
-                "May your spells compile without error"
-                "The grimoire closes... until next time"
-                "Your magic awaits in ~/.claude"
-                "Happy coding, wizard!"
-                "The arcane knowledge has been transferred"
-                "May your deployments be ever successful"
-                "Closing the book of blockchain wisdom"
-                "Your skills are ready. Go forth and build!"
-            )
-
-            # Pick a random farewell
-            local random_index=$((RANDOM % ${#farewells[@]}))
-            gum style --foreground 212 "${farewells[$random_index]}"
-            echo ""
-            exit 0
-        fi
-
-        case "$choice" in
-            "Explore Skills")
-                browse_skills
-                ;;
-            "Explore Agents")
-                browse_agents
-                ;;
-        esac
-    done
+    browse_skills
 }
 
 # Main execution
-if [ ! -d "$LOCAL_SKILLS_DIR" ] && [ ! -d "$LOCAL_AGENTS_DIR" ]; then
-    gum style --foreground 196 "Error: No .claude directory found in grimoire"
+if [ ! -d "$LOCAL_SKILLS_DIR" ]; then
+    gum style --foreground 196 "Error: No .claude/skills directory found in grimoire"
     exit 1
 fi
 

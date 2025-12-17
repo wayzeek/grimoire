@@ -1,7 +1,7 @@
 ---
 name: solidity
-description: Expert Solidity smart contract development using Foundry/Forge. Use when working with .sol files, EVM contracts, token standards (ERC-20/721/1155), smart contract security, gas optimization, or Foundry projects. Handles contract scaffolding, deployment, and security audits.
-allowed-tools: []
+description: Expert Solidity smart contract development using Foundry/Forge. Use when working with .sol files, EVM contracts, implementing token standards (ERC-20/721/1155), gas optimization, testing with Forge, or Foundry projects. Handles contract scaffolding, development, and deployment.
+allowed-tools: [Read, Write, Edit, Glob, Grep, Bash]
 ---
 
 # Solidity Smart Contract Development
@@ -35,14 +35,12 @@ When the user's request involves:
 - Creating new contracts → Use `workflows/scaffold-project.md`
 - Implementing token standards → Use `workflows/implement-token.md`
 - Deploying contracts → Use `workflows/deploy.md`
-- Security review → Use `workflows/audit.md`
 - General contract development → Provide direct assistance using context files
 
 ## Available Workflows
 - `/solidity-scaffold` - Scaffold new Forge project
 - `/solidity-token` - Implement token standards (ERC-20, ERC-721, ERC-1155)
 - `/solidity-deploy` - Deploy contracts to networks
-- `/solidity-audit` - Run security audit checklist
 
 ## Context Files
 - `context/security-patterns.md` - Security best practices and common vulnerabilities
