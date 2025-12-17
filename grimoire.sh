@@ -21,8 +21,10 @@ fi
 # Paths
 GRIMOIRE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LOCAL_SKILLS_DIR="$GRIMOIRE_DIR/.claude/skills"
+LOCAL_CLAUDE_MD="$GRIMOIRE_DIR/CLAUDE.md"
 USER_CLAUDE_DIR="$HOME/.claude"
 USER_SKILLS_DIR="$USER_CLAUDE_DIR/skills"
+USER_CLAUDE_MD="$USER_CLAUDE_DIR/CLAUDE.md"
 
 # Create user directories if they don't exist
 mkdir -p "$USER_SKILLS_DIR"
@@ -178,28 +180,9 @@ browse_skills() {
 
         local exit_code=$?
 
-        # Check exit code (ESC pressed) or empty selection - exit program
+        # Check exit code (ESC pressed) or empty selection - return to main menu
         if [ $exit_code -ne 0 ] || [ -z "$selection" ]; then
-            clear
-            echo ""
-
-            # Farewell messages array
-            local farewells=(
-                "May your spells compile without error"
-                "The grimoire closes... until next time"
-                "Your magic awaits in ~/.claude"
-                "Happy coding, wizard!"
-                "The arcane knowledge has been transferred"
-                "May your deployments be ever successful"
-                "Closing the book of blockchain wisdom"
-                "Your skills are ready. Go forth and build!"
-            )
-
-            # Pick a random farewell
-            local random_index=$((RANDOM % ${#farewells[@]}))
-            gum style --foreground 212 "${farewells[$random_index]}"
-            echo ""
-            exit 0
+            return
         fi
 
         # Handle "Install All Skills"
@@ -265,11 +248,125 @@ browse_skills() {
     done
 }
 
+# Get CLAUDE.md status
+get_claude_md_status() {
+    if [ ! -f "$USER_CLAUDE_MD" ]; then
+        echo "not installed"
+    elif ! diff -q "$LOCAL_CLAUDE_MD" "$USER_CLAUDE_MD" > /dev/null 2>&1; then
+        echo "update available"
+    else
+        echo "installed"
+    fi
+}
 
+# Manage CLAUDE.md file
+manage_claude_md() {
+    show_header
 
-# Main menu - directly browse skills
+    gum style --bold --foreground 212 "CLAUDE.md Configuration"
+    echo ""
+
+    local status=$(get_claude_md_status)
+
+    gum style --italic "Global configuration template for Claude Code behavior"
+    echo ""
+    gum style "Status: $status"
+    echo ""
+
+    # Build options based on status
+    if [ "$status" = "installed" ]; then
+        local choice=$(gum choose \
+            --header "↑/↓: Navigate • Enter: Select • ESC: Back" \
+            "View" \
+            "Update" \
+            "Delete")
+
+        local exit_code=$?
+
+        # Check if ESC was pressed
+        if [ $exit_code -ne 0 ] || [ -z "$choice" ]; then
+            return
+        fi
+
+        case "$choice" in
+            "View")
+                show_header
+                gum style --bold --foreground 212 "Global CLAUDE.md"
+                echo ""
+                gum pager < "$USER_CLAUDE_MD"
+                ;;
+            "Update")
+                gum spin --spinner dot --title "Updating CLAUDE.md..." -- \
+                    cp "$LOCAL_CLAUDE_MD" "$USER_CLAUDE_MD"
+                gum style --foreground 212 "Updated: ~/.claude/CLAUDE.md"
+                sleep 1
+                ;;
+            "Delete")
+                rm -f "$USER_CLAUDE_MD"
+                gum style --foreground 212 "Deleted: ~/.claude/CLAUDE.md"
+                sleep 1
+                ;;
+        esac
+    else
+        local action="Install"
+        [ "$status" = "update available" ] && action="Update"
+
+        gum confirm "$action CLAUDE.md to ~/.claude/?" && {
+            gum spin --spinner dot --title "Installing CLAUDE.md..." -- \
+                cp "$LOCAL_CLAUDE_MD" "$USER_CLAUDE_MD"
+            gum style --foreground 212 "Installed: ~/.claude/CLAUDE.md"
+            sleep 1
+        }
+    fi
+}
+
+# Main menu
 main_menu() {
-    browse_skills
+    while true; do
+        show_header
+
+        local choice=$(gum choose \
+            --header "↑/↓: Navigate • Enter: Select • ESC: Exit" \
+            --height 10 \
+            "Manage Skills" \
+            "Manage CLAUDE.md" \
+            "Exit")
+
+        local exit_code=$?
+
+        # Check exit code (ESC pressed) or Exit selected
+        if [ $exit_code -ne 0 ] || [ "$choice" = "Exit" ] || [ -z "$choice" ]; then
+            clear
+            echo ""
+
+            # Farewell messages array
+            local farewells=(
+                "May your spells compile without error"
+                "The grimoire closes... until next time"
+                "Your magic awaits in ~/.claude"
+                "Happy coding, wizard!"
+                "The arcane knowledge has been transferred"
+                "May your deployments be ever successful"
+                "Closing the book of blockchain wisdom"
+                "Your skills are ready. Go forth and build!"
+            )
+
+            # Pick a random farewell
+            local random_index=$((RANDOM % ${#farewells[@]}))
+            gum style --foreground 212 "${farewells[$random_index]}"
+            echo ""
+            exit 0
+        fi
+
+        case "$choice" in
+            "Manage Skills")
+                browse_skills
+                ;;
+            "Manage CLAUDE.md")
+                manage_claude_md
+                ;;
+        esac
+    done
 }
 
 # Main execution

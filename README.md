@@ -14,17 +14,25 @@
 
 ## Installation
 
-Run the interactive installer:
+Run the interactive manager:
 
 ```bash
 ./grimoire.sh
 ```
+
+This launches an interactive menu where you can:
+- Browse and install skills
+- Manage CLAUDE.md configuration files
+- View skill descriptions and status
 
 Or install manually:
 
 ```bash
 # Copy all skills
 cp -r .claude/skills/* ~/.claude/skills/
+
+# Copy CLAUDE.md configuration (optional)
+cp CLAUDE.md ~/.claude/CLAUDE.md
 ```
 
 ## Requirements
@@ -51,6 +59,22 @@ The **Frontend** and **Backend** skills are designed for hybrid development:
 - **Backend**: Supports both traditional APIs (REST/GraphQL) and blockchain-specific services (indexers, event processors)
 
 This allows seamless development across web2 and web3 projects within the same codebase.
+
+## CLAUDE.md Configuration
+
+Grimoire includes a refined CLAUDE.md template with best practices for working with Claude Code:
+
+- **Communication**: Ask clarifying questions upfront to eliminate ambiguity
+- **Documentation**: Keep READMEs concise and human-like
+- **Commits**: Follow Conventional Commits, verify builds/linters before committing
+- **Code Quality**: Regular cleanup of unused and deprecated code
+- **Package Manager**: Auto-detect pnpm/yarn/bun from lockfiles (never npm)
+
+Use `./grimoire.sh` to:
+- View project or global CLAUDE.md files
+- Copy grimoire's template to `~/.claude/CLAUDE.md` (global)
+- Sync between project and global configurations
+- Remove CLAUDE.md files when needed
 
 ## License
 
