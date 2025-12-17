@@ -196,12 +196,11 @@ import {
   useDisconnect,       // Disconnect wallet
   useEnsName,          // Get ENS name
   useEnsAvatar,        // Get ENS avatar
-  useNetwork,          // Get current network (deprecated in v2, use useChainId)
   useChainId,          // Get current chain ID
   useSwitchChain,      // Switch network
   useReadContract,     // Read from contract
   useWriteContract,    // Write to contract
-  useWaitForTransaction, // Wait for transaction (deprecated in v2)
+  useWaitForTransactionReceipt, // Wait for transaction receipt
   useWatchContractEvent, // Watch contract events
 } from 'wagmi'
 ```

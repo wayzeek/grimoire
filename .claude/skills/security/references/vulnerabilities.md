@@ -1,6 +1,6 @@
 # Common Vulnerabilities Reference
 
-See solidity skill's `context/security-patterns.md` for detailed patterns.
+See solidity skill's `references/security-patterns.md` for detailed patterns.
 
 ## Top 10 Smart Contract Vulnerabilities
 

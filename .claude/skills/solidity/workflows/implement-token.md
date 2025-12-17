@@ -12,7 +12,7 @@ Implement ERC-20, ERC-721, or ERC-1155 token contracts following best practices.
    - Any custom functionality?
 
 2. **Choose Base Implementation**
-   - Refer to `../context/token-standards.md` for preferences
+   - Refer to `../references/token-standards.md` for preferences
    - OpenZeppelin (battle-tested, modular)
    - Solmate (gas-optimized)
    - Solady (highly optimized)
@@ -39,7 +39,7 @@ Implement ERC-20, ERC-721, or ERC-1155 token contracts following best practices.
    - Test failure scenarios
 
 6. **Security Checks**
-   - Check for common vulnerabilities (see `../context/security-patterns.md`)
+   - Check for common vulnerabilities (see `../references/security-patterns.md`)
    - Verify access control on privileged functions
    - Test for reentrancy if applicable
    - Check integer overflow/underflow handling

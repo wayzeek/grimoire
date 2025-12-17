@@ -19,7 +19,7 @@ forge coverage
 
 ## Manual Review Checklist
 
-Use `../context/checklist.md` for detailed checklist.
+Use `../references/checklist.md` for detailed checklist.
 
 ### Critical Areas
 - Access control

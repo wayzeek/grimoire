@@ -27,7 +27,7 @@ cd <project-name>
 - If directory exists: Use `forge init --force` or choose different name
 
 ### 2. Configure foundry.toml
-Use settings from `../context/forge-config.md`:
+Use settings from `../references/forge-config.md`:
 - Set Solidity version (latest stable: ^0.8.20)
 - Configure optimizer settings (runs = 200)
 - Set up remappings for dependencies

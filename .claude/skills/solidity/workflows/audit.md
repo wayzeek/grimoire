@@ -19,7 +19,7 @@ forge coverage
 
 ## Manual Audit Checklist
 
-Refer to `../context/security-patterns.md` for detailed patterns. Key areas:
+Refer to `../references/security-patterns.md` for detailed patterns. Key areas:
 
 ### 1. Access Control
 - [ ] All privileged functions have proper access control

@@ -1,6 +1,6 @@
 # Security Audit Checklist
 
-Comprehensive checklist for smart contract audits. See solidity skill's `context/security-patterns.md` for implementation details.
+Comprehensive checklist for smart contract audits. See solidity skill's `references/security-patterns.md` for implementation details.
 
 ## Access Control
 - [ ] All privileged functions have modifiers
