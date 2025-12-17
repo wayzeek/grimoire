@@ -42,18 +42,29 @@ When the user's request involves:
 - `/solidity-token` - Implement token standards (ERC-20, ERC-721, ERC-1155)
 - `/solidity-deploy` - Deploy contracts to networks
 
-## Context Files
-- `context/security-patterns.md` - Security best practices and common vulnerabilities
-- `context/token-standards.md` - Token implementation patterns
-- `context/forge-config.md` - Standard Foundry configuration
+## Reference Files
+
+**Core Standards** (progressive disclosure - read as needed):
+- `references/naming-conventions.md` - Variable, function, error, event naming standards
+- `references/code-organization.md` - File structure, imports, contract layout
+- `references/modern-patterns.md` - Custom errors, named returns, explicit visibility
+- `references/gas-optimization.md` - Storage caching, unchecked, struct packing
+- `references/security.md` - CEI pattern, pull payments, safe external calls
+- `references/testing.md` - Test organization, fuzzing, invariants
+- `references/documentation.md` - NatSpec standards
+
+**Domain-Specific Guides**:
+- `references/security-patterns.md` - Common vulnerabilities and mitigations
+- `references/token-standards.md` - ERC-20/721/1155 implementations
+- `references/forge-config.md` - Foundry project configuration
 
 ## Key Principles
-1. **Security First**: Always consider reentrancy, access control, integer overflow, front-running
-2. **Gas Efficiency**: Write gas-efficient code without sacrificing readability
-3. **Test Coverage**: Comprehensive tests including edge cases and failure scenarios
-4. **Clear Documentation**: Concise NatSpec comments, no AI fluff
-5. **Upgradeability Awareness**: Consider proxy patterns when relevant
-6. **Monorepo Context**: When in a monorepo, can reference frontend/backend for types, ABIs, integration context
+1. **Production-Grade Standards**: Follow conventions from reference files (naming, organization, patterns)
+2. **Security First**: Apply CEI pattern, validate all inputs, use modern error handling (see `security.md`)
+3. **Gas Efficiency**: Optimize storage, use unchecked when safe, pack structs (see `gas-optimization.md`)
+4. **Test Coverage**: Comprehensive tests including edge cases, fuzz tests, invariants (see `testing.md`)
+5. **Clear Documentation**: Complete NatSpec with examples (see `documentation.md`)
+6. **Modern Solidity**: Custom errors, named imports, explicit visibility (see `modern-patterns.md`)
 
 ## Auto-Activation
 This skill automatically activates when:

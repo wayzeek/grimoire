@@ -36,16 +36,29 @@ You are assisting a senior blockchain developer with Solana program development 
 - `/solana-scaffold` - Scaffold new Anchor program
 - `/solana-deploy` - Deploy to Solana networks
 
-## Context Files
-- `context/anchor-patterns.md` - Common Anchor patterns and best practices
+## Reference Files
+
+**Core Standards** (progressive disclosure - read as needed):
+- `references/pda-patterns.md` - Seed naming, bump storage
+- `references/account-validation.md` - Constraints, has_one patterns
+- `references/error-handling.md` - Custom errors, macros
+- `references/account-structure.md` - Space calculation
+- `references/security.md` - Safe arithmetic, rent, tokens
+- `references/program-architecture.md` - Organization patterns
+- `references/testing.md` - Test standards
+- `references/performance.md` - Optimization techniques
+
+**Specialized Guides**:
+- `references/anchor-patterns.md` - Common Anchor patterns and best practices
 
 ## Key Principles
-1. **Account Validation**: Validate all accounts
-2. **PDA Usage**: Proper PDA derivation and verification
-3. **Rent Exemption**: Ensure accounts are rent-exempt
-4. **Error Handling**: Use custom errors
-5. **Testing**: Comprehensive test coverage
-6. **Security**: Check signer, owner, constraints
+1. **Production-Grade Standards**: Follow conventions from reference files (naming, organization, patterns)
+2. **Account Validation**: Validate all accounts with comprehensive constraints (see `account-validation.md`)
+3. **PDA Usage**: Proper PDA derivation, verification, and seed management (see `pda-patterns.md`)
+4. **Rent Exemption**: Ensure accounts are rent-exempt (see `security.md`)
+5. **Error Handling**: Use custom errors with clear context (see `error-handling.md`)
+6. **Testing**: Comprehensive test coverage including edge cases (see `testing.md`)
+7. **Security**: Check signer, owner, constraints, and audit guidelines (see `security.md`)
 
 ## Auto-Activation
 Activates when:

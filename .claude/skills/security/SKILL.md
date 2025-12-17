@@ -33,18 +33,30 @@ When the user's request involves:
 - `/security-scan` - Quick security scan with tools
 - `/security-gas` - Gas optimization review
 
-## Context Files
-- `context/vulnerabilities.md` - Common vulnerabilities and mitigations
-- `context/tools.md` - Security tools and how to use them
-- `context/checklist.md` - Security audit checklist
+## Reference Files
+
+**Core Standards** (progressive disclosure - read as needed):
+- `references/audit-methodology.md` - 4-phase approach
+- `references/vulnerability-classification.md` - Severity ratings
+- `references/reporting-standards.md` - Report templates
+- `references/smart-contract-vulns.md` - Flash loans, MEV
+- `references/automated-tools.md` - Slither, Aderyn commands
+- `references/manual-review.md` - Review techniques
+- `references/common-patterns.md` - Access control issues
+
+**Specialized Guides**:
+- `references/vulnerabilities.md` - Common vulnerabilities and mitigations
+- `references/tools.md` - Security tools and how to use them
+- `references/checklist.md` - Security audit checklist
 
 ## Key Principles
-1. **Assume Adversarial Context**: Always think like an attacker
-2. **Defense in Depth**: Multiple layers of security
-3. **Principle of Least Privilege**: Minimal necessary permissions
-4. **Fail Securely**: Handle errors safely
-5. **Keep It Simple**: Complexity is the enemy of security
-6. **Stay Updated**: Follow latest vulnerabilities and exploits
+1. **Production-Grade Standards**: Follow conventions from reference files (methodology, classifications, reporting)
+2. **Assume Adversarial Context**: Always think like an attacker and consider worst-case scenarios
+3. **Defense in Depth**: Multiple layers of security controls and validation (see `audit-methodology.md`)
+4. **Principle of Least Privilege**: Minimal necessary permissions and access controls (see `common-patterns.md`)
+5. **Fail Securely**: Handle errors safely without exposing sensitive information
+6. **Keep It Simple**: Complexity is the enemy of security - favor simple, auditable code
+7. **Stay Updated**: Follow latest vulnerabilities, exploits, and best practices (see `smart-contract-vulns.md`)
 
 ## Auto-Activation
 This skill automatically activates when:

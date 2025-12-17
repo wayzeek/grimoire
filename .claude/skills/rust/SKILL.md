@@ -37,16 +37,28 @@ You are assisting a senior developer with general Rust development (non-blockcha
 - `/rust-scaffold` - Scaffold new Rust project
 - `/rust-optimize` - Performance optimization
 
-## Context Files
-- `context/best-practices.md` - Rust idioms and best practices
+## Reference Files
+
+**Core Standards** (progressive disclosure - read as needed):
+- `references/idioms.md` - Type-state, builder, newtype
+- `references/error-handling.md` - thiserror, anyhow
+- `references/module-organization.md` - Structure, prelude
+- `references/async-patterns.md` - Actor, timeout/retry
+- `references/performance.md` - Zero-copy, iterators
+- `references/testing.md` - Unit, property-based
+- `references/documentation.md` - Doc standards
+
+**Specialized Guides**:
+- `references/best-practices.md` - Rust idioms and best practices
 
 ## Key Principles
-1. **Safety**: Leverage Rust's type system
-2. **Ownership**: Proper ownership and borrowing
-3. **Error Handling**: Use Result and Option
-4. **Idioms**: Write idiomatic Rust
-5. **Performance**: Zero-cost abstractions
-6. **Testing**: Comprehensive tests
+1. **Production-Grade Standards**: Follow conventions from reference files (idioms, organization, patterns)
+2. **Safety**: Leverage Rust's type system and borrow checker for memory safety
+3. **Ownership**: Proper ownership, borrowing, and lifetime management
+4. **Error Handling**: Use Result and Option types with context-rich errors (see `error-handling.md`)
+5. **Idioms**: Write idiomatic Rust following community conventions (see `idioms.md`)
+6. **Performance**: Zero-cost abstractions and efficient algorithms (see `performance.md`)
+7. **Testing**: Comprehensive unit, integration, and doc tests (see `testing.md`)
 
 ## Auto-Activation
 Activates when:

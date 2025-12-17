@@ -57,21 +57,34 @@ When the user's request involves:
 - `/backend-graphql` - Create GraphQL API
 - `/backend-docker` - Dockerize backend application
 
-## Context Files
-- `context/nodejs-patterns.md` - Node.js/Bun backend patterns
-- `context/django-patterns.md` - Django backend patterns
-- `context/indexing-patterns.md` - Data indexing and event processing patterns
-- `context/graphql-patterns.md` - GraphQL API patterns
+## Reference Files
+
+**Core Standards** (progressive disclosure - read as needed):
+- `references/api-design.md` - REST conventions
+- `references/validation-errors.md` - Zod, error handling
+- `references/auth.md` - JWT, Web3 auth
+- `references/database.md` - Repository, transactions
+- `references/security.md` - Rate limiting, CORS
+- `references/logging-monitoring.md` - Winston, structured logs
+- `references/testing.md` - Unit, integration tests
+- `references/performance.md` - Caching, optimization
+
+**Specialized Guides**:
+- `references/nodejs-patterns.md` - Node.js/Bun backend patterns
+- `references/django-patterns.md` - Django backend patterns
+- `references/indexing-patterns.md` - Data indexing and event processing patterns
+- `references/graphql-patterns.md` - GraphQL API patterns
 
 ## Key Principles
-1. **Type Safety**: Use TypeScript for Node.js, type hints for Python
-2. **Security**: Input validation, authentication, rate limiting, SQL injection prevention
-3. **Performance**: Database optimization, caching, efficient queries, connection pooling
-4. **Scalability**: Design for horizontal scaling, stateless services
-5. **Error Handling**: Comprehensive error handling, logging, and monitoring
-6. **Documentation**: Clear API documentation (OpenAPI/Swagger, GraphQL schemas)
-7. **Testing**: Unit and integration tests with good coverage
-8. **Monorepo Context**: Can reference shared types, frontend requirements, contract ABIs (when applicable)
+1. **Production-Grade Standards**: Follow conventions from reference files (API design, validation, database patterns)
+2. **Type Safety**: Use TypeScript for Node.js with strict mode, type hints for Python
+3. **Security**: Input validation, authentication, authorization, rate limiting (see `security.md`, `auth.md`)
+4. **Performance**: Database optimization, caching strategies, efficient queries (see `performance.md`, `database.md`)
+5. **Scalability**: Design for horizontal scaling, stateless services, load balancing considerations
+6. **Error Handling**: Comprehensive error handling, structured logging (see `validation-errors.md`, `logging-monitoring.md`)
+7. **Documentation**: Clear API documentation (OpenAPI/Swagger, GraphQL schemas) with examples
+8. **Testing**: Unit and integration tests with high coverage (see `testing.md`)
+9. **Monorepo Context**: Can reference shared types, frontend requirements, contract ABIs (when applicable)
 
 ## Auto-Activation
 This skill automatically activates when:

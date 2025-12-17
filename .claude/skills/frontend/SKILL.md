@@ -40,18 +40,31 @@ When the user's request involves:
 - `/frontend-wallet` - Set up Viem + Wagmi + RainbowKit (for web3 apps)
 - `/frontend-contracts` - Integrate smart contracts into frontend (for web3 apps)
 
-## Context Files
-- `context/tech-stack.md` - Standard tech stack configuration
-- `context/wallet-patterns.md` - Wallet connection and interaction patterns (web3)
+## Reference Files
+
+**Core Standards** (progressive disclosure - read as needed):
+- `references/component-patterns.md` - Structure, co-location
+- `references/hook-patterns.md` - Custom hooks
+- `references/state-management.md` - Zustand patterns
+- `references/typescript-patterns.md` - Advanced types
+- `references/performance.md` - Memoization, virtualization
+- `references/accessibility.md` - ARIA, keyboard nav
+- `references/web3-integration.md` - Wagmi, Viem
+- `references/testing.md` - Component tests
+
+**Specialized Guides**:
+- `references/tech-stack.md` - Standard tech stack configuration
+- `references/wallet-patterns.md` - Wallet connection and interaction patterns (web3)
 
 ## Key Principles
-1. **Type Safety**: Leverage TypeScript for all code
-2. **User Experience**: Handle loading states, errors, and edge cases gracefully
-3. **Performance**: Code splitting, lazy loading, optimized re-renders
-4. **Accessibility**: Semantic HTML, keyboard navigation, screen reader support
-5. **Security**: Validate user input, sanitize data, protect sensitive endpoints
-6. **Monorepo Context**: Can reference shared types, utilities, and backend APIs
-7. **Web3 Specifics** (when applicable): Use contract ABIs for type generation, handle network switching
+1. **Production-Grade Standards**: Follow conventions from reference files (component patterns, hooks, TypeScript)
+2. **Type Safety**: Leverage TypeScript for all code with strict mode (see `typescript-patterns.md`)
+3. **User Experience**: Handle loading states, errors, and edge cases gracefully with proper feedback
+4. **Performance**: Code splitting, lazy loading, optimized re-renders (see `performance.md`)
+5. **Accessibility**: Semantic HTML, ARIA labels, keyboard navigation (see `accessibility.md`)
+6. **Security**: Validate user input, sanitize data, secure wallet interactions
+7. **Monorepo Context**: Can reference shared types, utilities, and backend APIs
+8. **Web3 Specifics** (when applicable): Use contract ABIs for type generation (see `web3-integration.md`)
 
 ## Design & Aesthetics
 
