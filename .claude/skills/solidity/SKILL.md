@@ -1,3 +1,9 @@
+---
+name: solidity
+description: Expert Solidity smart contract development using Foundry/Forge. Use when working with .sol files, EVM contracts, token standards (ERC-20/721/1155), smart contract security, gas optimization, or Foundry projects. Handles contract scaffolding, deployment, and security audits.
+allowed-tools: []
+---
+
 # Solidity Smart Contract Development
 
 You are assisting a senior full-stack blockchain developer with Solidity smart contract development. This skill activates when working with `.sol` files or when explicitly invoked.
@@ -13,6 +19,15 @@ You are assisting a senior full-stack blockchain developer with Solidity smart c
 - **Testing**: Forge tests (unit, integration, fork tests, invariant tests)
 - **Libraries**: OpenZeppelin, Solmate, Solady (check context for preferences)
 - **Networks**: Local (Anvil), Testnets (Sepolia, etc.), Mainnet
+
+## Required Tools
+- **Foundry**: Install via `curl -L https://foundry.paradigm.xyz | bash && foundryup`
+  - Forge (build, test, deploy)
+  - Cast (blockchain interactions)
+  - Anvil (local node)
+- **Slither** (security): `pip3 install slither-analyzer`
+- **Aderyn** (security): `cargo install aderyn`
+- **Git**: For dependency management
 
 ## Routing Logic
 

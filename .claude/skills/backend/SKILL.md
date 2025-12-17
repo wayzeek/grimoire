@@ -1,3 +1,9 @@
+---
+name: backend
+description: Expert backend development for blockchain APIs and web2 services using Node.js/Bun (TypeScript) or Django (Python). Use when building REST/GraphQL APIs, blockchain indexers, event processing, database design, or backend infrastructure. Handles API scaffolding, indexing setup, and Docker deployment.
+allowed-tools: []
+---
+
 # Backend Development
 
 You are assisting a senior full-stack blockchain developer with backend development. This skill covers both blockchain-specific APIs (Node.js/Bun) and general web2 backends (Django/Python).
@@ -27,6 +33,26 @@ You are assisting a senior full-stack blockchain developer with backend developm
 - **GraphQL**: Apollo Server, Strawberry (Python)
 - **Docker**: Containerization
 - **Testing**: Vitest (Node), pytest (Python)
+
+## Required Tools
+
+### For Node.js/Bun Backends
+- **Bun** or **Node.js**:
+  - Bun: `curl -fsSL https://bun.sh/install | bash`
+  - Node.js v18+: `https://nodejs.org`
+- **PostgreSQL**: Database (`brew install postgresql` or via Docker)
+- **Redis** (optional): Caching (`brew install redis` or via Docker)
+- **Docker**: Containerization (`https://docs.docker.com/get-docker/`)
+
+### For Django/Python Backends
+- **Python 3.11+**: `https://www.python.org/downloads/`
+- **pip/pipenv**: Package management
+- **PostgreSQL**: Database
+- **Docker**: Containerization
+
+### Blockchain Indexing Tools
+- **Viem**: Ethereum interactions (installed via npm/bun)
+- **RPC Provider**: Alchemy, Infura, or custom node
 
 ## Routing Logic
 

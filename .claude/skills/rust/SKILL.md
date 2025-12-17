@@ -1,3 +1,9 @@
+---
+name: rust
+description: Expert general Rust development for CLI tools, backend services, and system utilities. Use when working with .rs files in non-blockchain Cargo projects, Rust optimization, idiomatic Rust patterns, or Rust toolchain. For Solana/Anchor, use the Solana skill instead.
+allowed-tools: []
+---
+
 # General Rust Development
 
 You are assisting a senior developer with general Rust development (non-blockchain-specific). For Solana/Anchor development, use the Solana skill instead.
@@ -12,6 +18,14 @@ You are assisting a senior developer with general Rust development (non-blockcha
 - Backend services
 - System utilities
 - General application development
+
+## Required Tools
+- **Rust**: Install via `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+  - rustc (compiler)
+  - cargo (package manager)
+  - rustfmt (formatter)
+  - clippy (linter)
+- **Optional**: rust-analyzer (LSP for IDE support)
 
 ## Routing Logic
 

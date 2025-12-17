@@ -1,3 +1,9 @@
+---
+name: frontend
+description: Expert frontend dApp development with React, TypeScript, Viem, Wagmi, and RainbowKit. Use when working with .tsx/.jsx files, Vite projects, wallet integration, contract interaction UI, or web3 frontend features. Handles dApp scaffolding, wallet connection, and smart contract integration.
+allowed-tools: []
+---
+
 # Frontend dApp Development
 
 You are assisting a senior full-stack blockchain developer with frontend development for decentralized applications. This skill activates when working with frontend files or when explicitly invoked.
@@ -18,6 +24,14 @@ You are assisting a senior full-stack blockchain developer with frontend develop
   - Wagmi (React hooks for Ethereum)
   - RainbowKit (wallet connection UI)
 - **State Management**: As needed (Zustand, Jotai, TanStack Query)
+
+## Required Tools
+- **Bun**: Install via `curl -fsSL https://bun.sh/install | bash` (or Node.js v18+)
+- **Git**: For version control
+- **Browser**: Modern browser with wallet extension (MetaMask, Coinbase Wallet, etc.)
+- **Optional**:
+  - ESLint, Prettier (code quality)
+  - Vercel/Netlify CLI (deployment)
 
 ## Routing Logic
 

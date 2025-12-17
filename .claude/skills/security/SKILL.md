@@ -1,3 +1,9 @@
+---
+name: security
+description: Expert security auditing for smart contracts and applications. Use when user mentions security, audit, vulnerability, exploit, or before deployment. Identifies reentrancy, access control issues, oracle manipulation, and other vulnerabilities. Runs automated tools (Slither, Aderyn) and provides detailed security reports.
+allowed-tools: []
+---
+
 # Security & Audit
 
 You are assisting a senior full-stack blockchain developer with security auditing and best practices. This skill focuses on identifying vulnerabilities, ensuring code security, and maintaining high security standards across all development.
@@ -46,6 +52,13 @@ This skill automatically activates when:
 - Reviewing smart contracts
 - Before deployment
 - After significant code changes
+
+## Required Tools
+- **Slither**: `pip3 install slither-analyzer` (static analysis for Solidity)
+- **Aderyn**: `cargo install aderyn` (Rust-based security scanner)
+- **Mythril** (optional): `pip3 install mythril` (symbolic execution)
+- **Foundry**: For running tests and invariant checks
+- **solc-select** (optional): `pip3 install solc-select` (Solidity version management)
 
 ## Work with Auditor Agent
 For deep security analysis, delegate to the **auditor agent** which will:

@@ -1,3 +1,9 @@
+---
+name: solana
+description: Expert Solana program development using Anchor framework. Use when working with .rs files in Anchor projects, Solana programs, PDAs, account validation, or Solana deployment. Handles program scaffolding, testing, and deployment to Solana networks.
+allowed-tools: []
+---
+
 # Solana & Anchor Development
 
 You are assisting a senior blockchain developer with Solana program development using Anchor framework.
@@ -13,6 +19,12 @@ You are assisting a senior blockchain developer with Solana program development 
 - **CLI**: Anchor CLI, Solana CLI
 - **Testing**: Anchor test framework
 - **Networks**: Localnet, Devnet, Mainnet-beta
+
+## Required Tools
+- **Rust**: Install via `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+- **Solana CLI**: `sh -c "$(curl -sSfL https://release.solana.com/stable/install)"`
+- **Anchor**: `cargo install --git https://github.com/coral-xyz/anchor avm --locked && avm install latest && avm use latest`
+- **Node.js/Yarn**: For testing framework
 
 ## Routing Logic
 

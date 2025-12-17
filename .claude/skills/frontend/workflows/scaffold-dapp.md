@@ -2,6 +2,19 @@
 
 Create a new frontend project with Bun + Vite + React + TypeScript + Tailwind + Web3.
 
+## Checklist
+
+- [ ] Initialize Vite project with React + TypeScript
+- [ ] Install core dependencies (Viem, Wagmi, RainbowKit, Tailwind)
+- [ ] Configure Tailwind CSS
+- [ ] Set up project structure (components, hooks, lib)
+- [ ] Configure TypeScript with strict mode
+- [ ] Update Vite config with path aliases
+- [ ] Create .env.example and .env.local
+- [ ] Update .gitignore
+- [ ] Create basic App structure
+- [ ] Verify dev server runs: `bun run dev`
+
 ## Steps
 
 ### 1. Initialize Project
@@ -14,6 +27,11 @@ cd <project-name>
 # Install dependencies
 bun install
 ```
+
+**Error Handling:**
+- If `bun: command not found`: Install Bun via `curl -fsSL https://bun.sh/install | bash`
+- If directory exists: Choose a different project name
+- If template fails: Try `npm create vite@latest` as fallback
 
 ### 2. Install Core Dependencies
 
@@ -28,6 +46,10 @@ bun add @rainbow-me/rainbowkit
 bun add -D tailwindcss postcss autoprefixer
 bunx tailwindcss init -p
 ```
+
+**Error Handling:**
+- If install fails: Clear bun cache with `bun pm cache rm`
+- If peer dependency warnings: Review and install required peer deps
 
 ### 3. Configure Tailwind
 
@@ -201,6 +223,23 @@ bun run build
 # Preview production build
 bun run preview
 ```
+
+**Expected Output:**
+- Dev server starts on http://localhost:5173
+- App renders with Tailwind styles working
+- No console errors
+
+**Error Handling:**
+- If dev server fails: Check port 5173 is not in use
+- If Tailwind not working: Verify tailwind.config.js content paths
+- If TypeScript errors: Check tsconfig.json is properly configured
+
+## Success Criteria
+- ✅ `bun run dev` starts without errors
+- ✅ App renders in browser with Tailwind styles
+- ✅ TypeScript strict mode enabled
+- ✅ Path aliases (@/*) working
+- ✅ Ready for Web3 integration
 
 ## Additional Setup (Optional)
 
