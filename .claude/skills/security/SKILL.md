@@ -1,6 +1,6 @@
 ---
 name: security
-description: Expert security auditing for smart contracts and applications. Use when user mentions security, audit, vulnerability, exploit, or before deployment. Identifies reentrancy, access control issues, oracle manipulation, and other vulnerabilities. Runs automated tools (Slither, Aderyn) and provides detailed security reports.
+description: Expert security auditing for smart contracts and applications. Use when user mentions security, audit, vulnerability, exploit, or before deployment. Performs code review, threat modeling, and automated analysis across smart contracts, backend systems, frontend applications, and infrastructure.
 allowed-tools: []
 ---
 
@@ -15,10 +15,17 @@ You are assisting a senior full-stack blockchain developer with security auditin
 - Provide actionable security recommendations
 
 ## Scope
-- **Smart Contract Security**: Solidity, EVM vulnerabilities
-- **Backend Security**: API security, authentication, data validation
-- **Frontend Security**: XSS, CSRF, wallet integration security
-- **Infrastructure**: Deployment security, key management
+
+**Web3 Security:**
+- Smart Contract Security (Solidity, EVM, Rust/Solana contracts)
+- DeFi protocols and oracle manipulation
+- Flash loan attacks, MEV, front-running
+
+**Web2 Security:**
+- Backend security (API security, authentication, authorization, input validation)
+- Database security (SQL injection, data leaks)
+- Frontend security (XSS, CSRF, DOM-based attacks)
+- Infrastructure (deployment security, key management, secrets handling)
 
 ## Routing Logic
 
@@ -71,10 +78,3 @@ This skill automatically activates when:
 - **Mythril** (optional): `pip3 install mythril` (symbolic execution)
 - **Foundry**: For running tests and invariant checks
 - **solc-select** (optional): `pip3 install solc-select` (Solidity version management)
-
-## Work with Auditor Agent
-For deep security analysis, delegate to the **auditor agent** which will:
-- Perform systematic security review
-- Check all common vulnerability patterns
-- Analyze business logic
-- Provide detailed report with severity ratings

@@ -1,6 +1,6 @@
 # Full Security Audit
 
-Comprehensive security review - for deep analysis, invoke the **auditor agent**.
+Comprehensive security review across all components of the application.
 
 ## Pre-Audit
 
@@ -43,17 +43,11 @@ Use `../context/checklist.md` for detailed checklist.
 6. **Gas Optimizations**
 7. **Informational**
 
-## Invoke Auditor Agent
+## Reporting
 
-For comprehensive analysis:
-- Complex DeFi protocols
-- Pre-mainnet deployment
-- External audit preparation
-- Post-incident review
-
-The auditor agent provides:
-- Systematic security review
+Generate a structured security report with:
+- Systematic security review findings
 - Detailed vulnerability analysis
-- Severity ratings
-- Fix recommendations
-- Attack scenarios
+- Severity ratings (Critical, High, Medium, Low)
+- Fix recommendations with code examples
+- Attack scenarios and mitigation strategies

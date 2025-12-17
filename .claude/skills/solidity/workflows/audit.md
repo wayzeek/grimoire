@@ -1,6 +1,6 @@
 # Security Audit Workflow
 
-Comprehensive security audit checklist for smart contracts. For deep security analysis, invoke the **auditor agent**.
+Comprehensive security audit checklist for smart contracts.
 
 ## Quick Security Scan
 
@@ -114,18 +114,11 @@ Document findings:
 4. Low severity / Gas optimizations (nice to have)
 5. Informational
 
-## When to Invoke Auditor Agent
+## After Your Review
 
-For comprehensive security review, invoke the **auditor agent**:
-- Deep security analysis needed
-- Pre-mainnet deployment
-- Complex DeFi protocols
-- After major contract changes
-- External audit preparation
-
-The auditor agent will:
-- Perform thorough security analysis
-- Check all common vulnerability patterns
-- Review business logic for flaws
-- Provide detailed security report
-- Suggest fixes and improvements
+Once you've completed the manual audit checklist and run automated tools:
+- Consolidate all findings into a structured report
+- Prioritize by severity level
+- Document fix recommendations with code examples
+- Create an action plan for addressing issues
+- Follow up after fixes are implemented
